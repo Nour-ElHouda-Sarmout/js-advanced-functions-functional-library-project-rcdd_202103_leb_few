@@ -103,7 +103,12 @@ const fi = (function() {
       return values.sort((a, b) => callback(a) - callback(b))
     },
 
-  
+    flatten: function(array, shallow = false) {
+      let level = "Infinity"
+      if (shallow) {level = 1}
+      return array.flat(level)
+    },
+
     uniq: function(array, isSorted = false, callback = false) {
       let values = Array.from(array)
       if (!!callback) {
